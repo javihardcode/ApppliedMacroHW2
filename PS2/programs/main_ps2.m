@@ -42,7 +42,15 @@ lags    = laglenght(q,1);
 
 
 %% 1) Cholesky Triangularization: different approaches: 
+% Helloooooooooooo cholesky line 45 
 
+
+
+
+% xxxxxxxxxxxxxxxx
+
+
+% ASnother cholesky here in line 53
 % Cholesky Order: Wages, Employment and GDP
 y = [lwage lemp lgdp];
  
@@ -66,6 +74,26 @@ plot_irfs_(irfs_to_plot,options);
 
 
 %% Minnesota Priors:
+
+
+
+% Minnesota prioressssssssssss 
+
+
+
+% Blank space 
+
+%{
+
+
+dddddddddd
+
+
+%}
+
+
+
+
 
 % Fabios's Example approach: Maximize sequentially
 
