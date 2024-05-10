@@ -1,25 +1,25 @@
-% Load data
 clear; clc; 
 close all; 
 
 
-%data_path = 
-%data_path = '/Users/javierramosperez/Desktop/CEMFI/Master Economics and Finance/Applied Macroeconomics/PS2/data'; 
+
+%data_path = '.../Rodrigo...'
+
+userName = char(java.lang.System.getProperty('user.name')); 
+if userName == 'javierramosperez'
+    data_path = '/Users/javierramosperez/Desktop/CEMFI/Master Economics and Finance/Applied Macroeconomics/PS2/data'; 
+end 
+
+
+addpath /Users/javierramosperez/Desktop/GitHub/BVAR_/cmintools/
+addpath /Users/javierramosperez/Desktop/GitHub/BVAR_/bvartools/
 
 
 
-
-%addpath /Users/javierramosperez/Desktop/GitHub/BVAR_/cmintools/
-%addpath /Users/javierramosperez/Desktop/GitHub/BVAR_/bvartools/
-
-
-
-% 1. Import Data in Excel Format
+% Import Data
 [lgdp, lemp, lwage, dates] = importdata(data_path); 
 
-
-y = [lwage lemp lgdp]; 
-
+y = [lwage lgdp lemp]; 
 
 % 2. Optimal lag's lenght: minimize HQIC criteria
 minlag =1; 
@@ -38,29 +38,14 @@ end
 lags    = laglenght(q,1); 
 
 
-
-
-
 %% 1) Cholesky Triangularization: different approaches: 
-% Helloooooooooooo cholesky line 45 
-
-
-
-
-% xxxxxxxxxxxxxxxx
-
-
-% ASnother cholesky here in line 53
-% Cholesky Order: Wages, Employment and GDP
+% Cholesky Order: Wages, GDP, Employment
 y = [lwage lemp lgdp];
- 
 optionsClassical.K            = 100;
 [CVAR1_Cholesky] = cvar_(y,lags,optionsClassical);  % Check size of var-covar matrix estimates
-
-indx_sho              = 3;
-
+indx_sho              = 2;
 % Order of variables in the plot: gdp, employment and wages
-indx_var              = [3, 2, 1];
+indx_var              = [2, 3, 1];
 irfs_to_plot          = CVAR1_Cholesky.ir_boots(indx_var,:,indx_sho,:);
 options.varnames      = {'Real GDP','Employment','Wages'};  
 options.saveas_dir    = './plots';
@@ -68,14 +53,12 @@ options.saveas_strng  = 'Cholesky Classical';
 options.shocksnames   = {'Technology'};  
 options.conf_sig_2    = 0.90; 
 options.nplots        = [3 1];
-plot_irfs_(irfs_to_plot,options); 
+plot_irfs_(irfs_to_plot,options);
 %close; 
-
 
 
 %% Minnesota Priors:
 % Fabios's Example approach: Maximize sequentially
-
 % 1) Maximizes over tau
 hyperpara(1)    = 3;		  % tau
 hyperpara(2)    = 0.5;		  % decay
@@ -109,8 +92,8 @@ options.K = 100;
 BVAR1_Minnesota_Cholesky                  = bvar_(y,lags,options);
 
 % Step 3) Estimate IRF
-indx_sho              = 3;
-indx_var              = [3, 2, 1];
+indx_sho              = 2;
+indx_var              = [2,3, 1];
 
 irfs_to_plot           = BVAR1_Minnesota_Cholesky.ir_draws(indx_var,:,indx_sho,:);
 
@@ -125,16 +108,6 @@ plot_irfs_(irfs_to_plot,options);
 
 
 %% Inverse Wishart -conjugate- Priors:
-
-%{
-
-Javi: Friday 10 May
-
-
-
-%}
-
-
 % Step 1) Set priors from classical Reduced form VAR and estimate BVAR 
 
 % Priors on parameters (Phi and Sigma )
@@ -152,8 +125,8 @@ BVAR1_IW_Cholesky  = bvar_(y,lags,optionsIW);
 
 % Step 3) Estimate IRF
 
-indx_sho              = 3;
-indx_var              = [3, 2, 1];
+indx_sho              = 2;
+indx_var              = [2, 3, 1];
 
 irfs_to_plot           = BVAR1_IW_Cholesky.ir_draws(indx_var,:,indx_sho,:);
 options.varnames      = {'Real GDP','Employment','Wages'};  
@@ -176,6 +149,8 @@ plot_irfs_(irfs_to_plot,options);
 
 
 %}
+
+
 
 
 options.K    = 10;
