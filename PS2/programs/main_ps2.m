@@ -3,7 +3,7 @@ clear; clc;
 close all; 
 % Hola rodri
 % Hello World
-
+% Hello, text in line 6 
 data_path = '/Users/javierramosperez/Desktop/CEMFI/Master Economics and Finance/Applied Macroeconomics/PS2/data'; 
 
 
