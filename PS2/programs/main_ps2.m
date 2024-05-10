@@ -1,7 +1,7 @@
 % Load data
 clear; clc; 
 close all; 
-
+% Hola rodri
 
 data_path = '/Users/javierramosperez/Desktop/CEMFI/Master Economics and Finance/Applied Macroeconomics/PS2/data'; 
 
