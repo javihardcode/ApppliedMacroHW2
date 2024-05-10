@@ -1,16 +1,16 @@
 % Load data
 clear; clc; 
 close all; 
-% Hola rodri
-% Hello World
-% One last step simultaneous
-
-% Hello, text in line 6 
-data_path = '/Users/javierramosperez/Desktop/CEMFI/Master Economics and Finance/Applied Macroeconomics/PS2/data'; 
 
 
-addpath /Users/javierramosperez/Desktop/GitHub/BVAR_/cmintools/
-addpath /Users/javierramosperez/Desktop/GitHub/BVAR_/bvartools/
+%data_path = 
+%data_path = '/Users/javierramosperez/Desktop/CEMFI/Master Economics and Finance/Applied Macroeconomics/PS2/data'; 
+
+
+
+
+%addpath /Users/javierramosperez/Desktop/GitHub/BVAR_/cmintools/
+%addpath /Users/javierramosperez/Desktop/GitHub/BVAR_/bvartools/
 
 
 
@@ -74,27 +74,6 @@ plot_irfs_(irfs_to_plot,options);
 
 
 %% Minnesota Priors:
-
-
-
-% Minnesota prioressssssssssss 
-
-
-
-% Blank space 
-
-%{
-
-
-dddddddddd
-
-
-%}
-
-
-
-
-
 % Fabios's Example approach: Maximize sequentially
 
 % 1) Maximizes over tau
