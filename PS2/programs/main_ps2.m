@@ -5,6 +5,7 @@ close all;
 % Hello World
 % One last step simultaneous
 
+% Hello, text in line 6 
 data_path = '/Users/javierramosperez/Desktop/CEMFI/Master Economics and Finance/Applied Macroeconomics/PS2/data'; 
 
 
