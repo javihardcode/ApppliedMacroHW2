@@ -213,4 +213,25 @@ plot_irfs_(irfs_to_plot,options);
 
 
 
+%%% Last try Temporary This can be erased
+
+indx_sho              = 3;
+indx_var              = [3, 2, 1];
+
+irfs_to_plot          = BVAR.irQ_draws(indx_var,:,indx_sho,:);
+
+
+% Customize the IRF plot
+options.varnames      = {'Real GDP','Employment','Wages'};  
+options.saveas_dir    = './plots';
+options.saveas_strng  = 'Signs';
+options.shocksnames   = {'Technology'};  
+options.conf_sig_2    = 0.90;
+
+plot_irfs_(irfs_to_plot,options); 
+
+%%% Last try Temporary This can be erased
+
+
+
 
