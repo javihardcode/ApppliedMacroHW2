@@ -3,6 +3,7 @@ clear; clc;
 close all; 
 % Hola rodri
 % Hello World
+% One last step simultaneous
 
 data_path = '/Users/javierramosperez/Desktop/CEMFI/Master Economics and Finance/Applied Macroeconomics/PS2/data'; 
 
